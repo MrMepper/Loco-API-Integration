@@ -50,10 +50,6 @@ def restaurant_search(**object_dict):
         print (each['phone'])
         print (each['street_address'], '\n')
 
-
-
-
-
 restaurant_search(**object_dict)
 
 
