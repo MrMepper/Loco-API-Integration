@@ -49,6 +49,7 @@ def restaurant_search(**object_dict):
         print (each['name'])
         print (each['phone'])
         print (each['street_address'], '\n')
+        print ('-------------------')
 
 restaurant_search(**object_dict)
 
