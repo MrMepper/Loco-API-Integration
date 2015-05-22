@@ -3,10 +3,11 @@
 import urllib.request
 import json
 import codecs
+#Generated Locu API created from https://dev.locu.com/
 locu_api = '4fda38a894269e7abed0b1b5c4af272a4c82decd'
+#Base URL sample for syntax reference. This doesn't do anything in the code.
 url = 'https://api.locu.com/v1_0/venue/search/?name=hello&locality=Conway&cuisine=Asian&api_key=4fda38a894269e7abed0b1b\
 5c4af272a4c82decd'
-
 
 object_dict = {}
 
@@ -14,6 +15,7 @@ state = input("Please enter your State:")
 object_dict['State'] = state
 
 locality = input("Please enter City Name:")
+locality = locality.replace(' ', '%20')
 object_dict['City'] = locality
 
 print("Would you like to enter the name of the restaurant?")
@@ -39,11 +41,12 @@ def restaurant_search(**object_dict):
 
     if object_dict['Restaurant'] is not None:
         new_url = 'https://api.locu.com/v1_0/venue/search/?api_key=4fda38a894269e7abed0b1b5c4af272a4c82decd' \
-            + "&locality=" + object_dict['City'] + '&name=' + object_dict['Restaurant']
+            + "&locality=" + object_dict['City'] + '&name=' + object_dict['Restaurant'] \
+            + '&region=' + object_dict['State']
     if object_dict['Cuisine'] is not None:
         new_url = 'https://api.locu.com/v1_0/venue/search/?api_key=4fda38a894269e7abed0b1b5c4af272a4c82decd' \
-            + "&locality=" + object_dict['City'] + '&name=' + object_dict['Restaurant'] + '&cuisine=' + \
-            object_dict['Cuisine']
+            + '&locality=' + object_dict['City']+ '&cuisine=' + object_dict['Cuisine'] \
+            + '&region=' + object_dict['State']
     request = urllib.request.urlopen(new_url)
     reader = codecs.getreader("utf-8")
     data = json.load(reader(request))
