@@ -7,4 +7,5 @@ Enables users to input State, City, Restaurant name, and Cuisine in order to sea
 Displays the Name, phone number, and the address of the business
 
 ##Project Plans
-Create a simple GUI instead of console application.
+1. Create a simple GUI instead of console application.
+2. Prevent Restauraunts without phone/address from appearing.
